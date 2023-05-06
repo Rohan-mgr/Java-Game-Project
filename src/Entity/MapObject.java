@@ -115,6 +115,7 @@ public abstract class MapObject {
         if(dy > 0) {
             if(bottomLeft || bottomRight) {
                 dy = 0;
+                falling = false;
                 ytemp = (currRow + 1) * tileSize - cheight / 2;
             } else {
                 ytemp += dy;
