@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
 
+@SuppressWarnings("serial")
 public class GamePanel extends JPanel implements Runnable, KeyListener{
     //dimensions
 
