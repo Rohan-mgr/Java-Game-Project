@@ -164,8 +164,11 @@ public class Player extends MapObject{
     public void hit(int damage) {
         if(flinching) return;
         health -= damage;
-        if(health < 0) height = 0;
-        if(health == 0) dead = true;
+        if(health < 0) health = 0;
+        if(health == 0) {
+            dead = true;
+            System.exit(0);
+        }
         flinching = true;
         flinchTimer = System.nanoTime();
     }

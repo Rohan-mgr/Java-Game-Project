@@ -10,7 +10,6 @@ public class MenuState extends GameState {
     private int currentChoice = 0;
     private String[] options = {
             "Start",
-            "Help",
             "Quit"
     };
     private Color titleColor;
@@ -38,7 +37,7 @@ public class MenuState extends GameState {
         //draw title
         g.setColor(titleColor);
         g.setFont(titleFont);
-        g.drawString("Dragon Tale", 80, 70);
+        g.drawString("Dragon", 80, 70);
         //draw menu options
         g.setFont(font);
         for(int i = 0; i<options.length; i++){
@@ -56,9 +55,7 @@ public class MenuState extends GameState {
             gsm.setState(GameStateManager.LEVEL1STATE);
         }
         if(currentChoice == 1) {
-            //help
-        }
-        if(currentChoice == 2) {
+            //exit
             System.exit(0);
         }
     }
