@@ -1,11 +1,16 @@
 package TileMap;
 
+import GameState.GameStateManager;
+import GameState.MenuState;
 import Main.GamePanel;
 
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
 import javax.imageio.ImageIO;
+import javax.swing.*;
+
+
 public class TileMap {
     //position
     private double x;
@@ -92,11 +97,26 @@ public class TileMap {
     public  int getHeight() { return height;};
 
     public int getType(int row, int col) {
+        if (row < 0 || row >= numRows || col < 0 || col >= numCols) {
+            System.out.println("pranit crashed");
+
+            // Return a default value or handle the out-of-bounds case accordingly
+            return Tile.NORMAL; // Adjust this based on your needs
+        }
+
         int rc = map[row][col];
         int r = rc / numTilesAcross;
         int c = rc % numTilesAcross;
-        return tiles[r][c].getType();
+
+        // Check if indices are within bounds for the tiles array
+        if (r >= 0 && r < tiles.length && c >= 0 && c < tiles[0].length) {
+            return tiles[r][c].getType();
+        }
+
+        // Return a default value or handle the case where tiles array indices are out of bounds
+        return Tile.NORMAL; // Adjust this based on your needs
     }
+
 
     public void setTween(double d) { tween = d;};
 
